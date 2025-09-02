@@ -1,0 +1,18 @@
+{
+  "name": "book-builder",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "install:client": "npm --prefix client install",
+    "install:server": "npm --prefix server install",
+    "install:all": "npm-run-all -p install:client install:server",
+    "dev": "concurrently -n server,client -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "start": "concurrently -n server,client -c blue,green \"npm --prefix server start\" \"npm --prefix client preview\"",
+    "postinstall": "npm run install:all"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
+
